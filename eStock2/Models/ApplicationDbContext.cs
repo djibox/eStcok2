@@ -15,6 +15,7 @@ namespace eStock2.Models
             return new ApplicationDbContext();
         }
 
+        //On verra cette fonctionnalité avec EF 6
         public DbSet<Produit> Produits { get; set; }
     }
 }

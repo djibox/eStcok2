@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202211142108488_Produit.designer.cs">
       <DependentUpon>202211142108488_Produit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211282027583_AjoutDateExpiration.cs" />
+    <Compile Include="Migrations\202211282027583_AjoutDateExpiration.designer.cs">
+      <DependentUpon>202211282027583_AjoutDateExpiration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -283,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211142108488_Produit.resx">
       <DependentUpon>202211142108488_Produit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211282027583_AjoutDateExpiration.resx">
+      <DependentUpon>202211282027583_AjoutDateExpiration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

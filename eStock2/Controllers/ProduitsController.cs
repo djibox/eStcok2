@@ -46,7 +46,7 @@ namespace eStock2.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Designation,Prix,Quantite,DateCreation")] Produit produit)
+        public ActionResult Create([Bind(Include = "Id,Designation,Prix,Quantite,DateCreation,DateExpiration")] Produit produit)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace eStock2.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Designation,Prix,Quantite,DateCreation")] Produit produit)
+        public ActionResult Edit([Bind(Include = "Id,Designation,Prix,Quantite,DateCreation, DateExpiration")] Produit produit)
         {
             if (ModelState.IsValid)
             {
