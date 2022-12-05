@@ -17,6 +17,8 @@ namespace eStock2.Controllers
         // GET: Produits
         public ActionResult Index()
         {
+            //ça c'est du linq
+            ViewBag.NombreProduits = db.Produits.Count();
             var produits = db.Produits.Include(p => p.Fournisseur);
             return View(produits.ToList());
         }
