@@ -20,5 +20,7 @@ namespace eStock2.Models
         [DisplayName("Date d'expiration")]
         [DataType(DataType.Date)]
         public DateTime DateExpiration { get; set; }
+        public int FournisseurId { get; set; }
+        public Fournisseur Fournisseur { get; set; }
     }
 }

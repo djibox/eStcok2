@@ -1,10 +1,10 @@
-﻿@model IEnumerable<eStock2.Models.Produit>
+﻿@model IEnumerable<eStock2.Models.Fournisseur>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2 class="alert alert-success">Liste des produits</h2>
+<h2 class="alert alert-success">Liste des fournisseurs</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,22 +12,16 @@
 <table class="table table-bordered">
     <tr>
         <th>
-            Fournisseur
+            Désignation
         </th>
         <th>
-            Produit
+            Adresse Physique
         </th>
         <th>
-            Prix de vente
+            Adresse Email
         </th>
         <th>
-            Quantite en stock
-        </th>
-        <th>
-            Date de Creation
-        </th>
-        <th>
-            Date d'expiration
+            Numéro de Téléphone
         </th>
         <th>Actions</th>
     </tr>
@@ -35,22 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Fournisseur.Designation)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Designation)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Prix)
+            @Html.DisplayFor(modelItem => item.AdressePhysique)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Quantite)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateCreation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateExpiration)
+            @Html.DisplayFor(modelItem => item.Telephone)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

@@ -243,3 +243,4 @@ C:\Users\P R E C I S I O N\Documents\GitHub\eStcok2\eStock2\obj\Debug\eStock2.cs
 C:\Users\P R E C I S I O N\Documents\GitHub\eStcok2\eStock2\obj\Debug\eStock2.csproj.CopyComplete
 C:\Users\P R E C I S I O N\Documents\GitHub\eStcok2\eStock2\obj\Debug\eStock2.dll
 C:\Users\P R E C I S I O N\Documents\GitHub\eStcok2\eStock2\obj\Debug\eStock2.pdb
+C:\Users\P R E C I S I O N\Documents\GitHub\eStcok2\eStock2\obj\Debug\eStock2.Migrations.Fournisseur.resources

@@ -10,112 +10,107 @@ using eStock2.Models;
 
 namespace eStock2.Controllers
 {
-    public class ProduitsController : Controller
+    public class FournisseursController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Produits
+        // GET: Fournisseurs
         public ActionResult Index()
         {
-            var produits = db.Produits.Include(p => p.Fournisseur);
-            return View(produits.ToList());
+            return View(db.Fournisseurs.ToList());
         }
 
-        // GET: Produits/Details/5
+        // GET: Fournisseurs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produit produit = db.Produits.Find(id);
-            if (produit == null)
+            Fournisseur fournisseur = db.Fournisseurs.Find(id);
+            if (fournisseur == null)
             {
                 return HttpNotFound();
             }
-            return View(produit);
+            return View(fournisseur);
         }
 
-        // GET: Produits/Create
+        // GET: Fournisseurs/Create
         public ActionResult Create()
         {
-            ViewBag.FournisseurId = new SelectList(db.Fournisseurs, "Id", "Designation");
             return View();
         }
 
-        // POST: Produits/Create
+        // POST: Fournisseurs/Create
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Designation,Prix,Quantite,DateCreation,DateExpiration,FournisseurId")] Produit produit)
+        public ActionResult Create([Bind(Include = "Id,Designation,AdressePhysique,Email,Telephone")] Fournisseur fournisseur)
         {
             if (ModelState.IsValid)
             {
-                db.Produits.Add(produit);
+                db.Fournisseurs.Add(fournisseur);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FournisseurId = new SelectList(db.Fournisseurs, "Id", "Designation", produit.FournisseurId);
-            return View(produit);
+            return View(fournisseur);
         }
 
-        // GET: Produits/Edit/5
+        // GET: Fournisseurs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produit produit = db.Produits.Find(id);
-            if (produit == null)
+            Fournisseur fournisseur = db.Fournisseurs.Find(id);
+            if (fournisseur == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.FournisseurId = new SelectList(db.Fournisseurs, "Id", "Designation", produit.FournisseurId);
-            return View(produit);
+            return View(fournisseur);
         }
 
-        // POST: Produits/Edit/5
+        // POST: Fournisseurs/Edit/5
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Designation,Prix,Quantite,DateCreation,DateExpiration,FournisseurId")] Produit produit)
+        public ActionResult Edit([Bind(Include = "Id,Designation,AdressePhysique,Email,Telephone")] Fournisseur fournisseur)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produit).State = EntityState.Modified;
+                db.Entry(fournisseur).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FournisseurId = new SelectList(db.Fournisseurs, "Id", "Designation", produit.FournisseurId);
-            return View(produit);
+            return View(fournisseur);
         }
 
-        // GET: Produits/Delete/5
+        // GET: Fournisseurs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produit produit = db.Produits.Find(id);
-            if (produit == null)
+            Fournisseur fournisseur = db.Fournisseurs.Find(id);
+            if (fournisseur == null)
             {
                 return HttpNotFound();
             }
-            return View(produit);
+            return View(fournisseur);
         }
 
-        // POST: Produits/Delete/5
+        // POST: Fournisseurs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produit produit = db.Produits.Find(id);
-            db.Produits.Remove(produit);
+            Fournisseur fournisseur = db.Fournisseurs.Find(id);
+            db.Fournisseurs.Remove(fournisseur);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -17,5 +17,6 @@ namespace eStock2.Models
 
         //On verra cette fonctionnalité avec EF 6
         public DbSet<Produit> Produits { get; set; }
+        public DbSet<Fournisseur> Fournisseurs { get; set; }
     }
 }
