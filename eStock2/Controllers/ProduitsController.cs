@@ -15,11 +15,14 @@ namespace eStock2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Produits
-        public ActionResult Index()
+        public ActionResult Index(string SearchTerm)
         {
             //ça c'est du linq
             ViewBag.NombreProduits = db.Produits.Count();
-            var produits = db.Produits.Include(p => p.Fournisseur);
+            //var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.Contains(SearchTerm));
+            //var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.StartsWith(SearchTerm));
+            var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.EndsWith(SearchTerm));
+            ViewBag.NbProduits = produits.Count();
             return View(produits.ToList());
         }
 
