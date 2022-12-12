@@ -19,9 +19,9 @@ namespace eStock2.Controllers
         {
             //ça c'est du linq
             ViewBag.NombreProduits = db.Produits.Count();
-            //var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.Contains(SearchTerm));
+            var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.Contains(SearchTerm));
             //var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.StartsWith(SearchTerm));
-            var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.EndsWith(SearchTerm));
+            //var produits = db.Produits.Include(p => p.Fournisseur).Where(p=>p.Designation.EndsWith(SearchTerm));
             ViewBag.NbProduits = produits.Count();
             return View(produits.ToList());
         }
