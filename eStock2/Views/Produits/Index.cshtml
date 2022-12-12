@@ -65,9 +65,27 @@
                 @Html.DisplayFor(modelItem => item.Fournisseur.Designation)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                <div class="dropup">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Paramétre
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                        </li>
+                        <li role="separator" class="divider"></li>
+
+                        <li>
+                            @Html.ActionLink("Details", "Details", new { id = item.Id })
+                        </li>
+                        <li role="separator" class="divider"></li>
+
+                        <li>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
             </td>
         </tr>
     }
